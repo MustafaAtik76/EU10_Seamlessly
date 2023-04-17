@@ -12,7 +12,7 @@ public class CalendarPage extends BasePage{
     @FindBy(xpath = "(//div[@class='action-item'])[1]")
     public WebElement dropdownMenu;
 
-    @FindBy(xpath = "(//span[@class='material-design-icon view-day-icon'])[2]")
+    @FindBy(xpath = "//span[@class='material-design-icon view-day-icon']")
     public WebElement dayButton;
 
     @FindBy(xpath = "//span[@class='material-design-icon view-week-icon']")

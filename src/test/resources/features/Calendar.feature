@@ -34,7 +34,7 @@ Feature: Calendar Module
     And  User click on "month" option
     Then User should see monthly calendar view
 
-  @SEAMLES10-613
+  @SEAMLES10-613 #smoke
   Scenario: User  can create a new event  and see it on the calendar
     When  User  select Monthly view calendar
     And  User  click on New event button
