@@ -5,13 +5,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.seamlessly.pages.TasksPage;
 import net.seamlessly.utility.BrowserUtility;
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TasksStepDefs {
     TasksPage tasksPage = new TasksPage();
@@ -155,7 +156,7 @@ public class TasksStepDefs {
     @Then("verify that user cannot create second same name task")
     public void verifyThatUserCannotCreateSecondSameNameTask() {
         try {
-            assertEquals(1,tasksPage.newTaskList.size());
+            assertEquals(1, tasksPage.newTaskList.size());
         } catch (AssertionError e) {
         }
         tasksPage.deleteTestList(testListName);

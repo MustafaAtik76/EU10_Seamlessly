@@ -6,13 +6,13 @@ import io.cucumber.java.en.When;
 import net.seamlessly.pages.BasePage;
 import net.seamlessly.pages.SearchPage;
 import net.seamlessly.utility.BrowserUtility;
+import net.seamlessly.utility.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
-public class SearchStepDefs extends BasePage {
+public class SearchStepDefs extends BasePage  {
 
     SearchPage searchPage = new SearchPage();
 
@@ -59,5 +59,36 @@ public class SearchStepDefs extends BasePage {
     searchPage.firstResultList.click();
 
         BrowserUtility.sleep(5);
+    }
+
+    @And("user clicks the photos icon")
+    public void userClicksThePhotosIcon() {
+        searchPage.photos.click();
+        BrowserUtility.sleep(5);
+
+    }
+
+    @Then("user can see the {string} file")
+    public void userCanSeeTheFile (String file) {
+
+WebElement uploadedPhoto= Driver.getDriver().findElement(By.xpath("//img[@alt='"+file+".jpg']"));
+Assert.assertTrue(uploadedPhoto.isDisplayed());
+//        String expectedFile = uploadedPicture;
+//        String actualFile = uploadedPicture.uploadedFileOrFolder().getText();
+//        Assert.assertEquals("file not uploaded", expectedFile, actualFile);
+
+    }
+
+    @When("User clicks seamlesslyIcon")
+    public void userClicksSeamlesslyIcon() {
+        WebElement seamlesslyIcon =Driver.getDriver().findElement(By.id("nextcloud"));
+
+        seamlesslyIcon.click();
+
+    }
+
+    @Then("user navigates to dashboard page")
+    public void userNavigatesToDashboardPage() {
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("dashboard"));
     }
 }

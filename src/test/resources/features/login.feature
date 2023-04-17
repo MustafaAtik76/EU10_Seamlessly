@@ -26,7 +26,7 @@ Feature: Login functionality
 	#
 	#1-User can login with valid credentials (either clicking on the "Login button" or hitting the "Enter" key from the keyboard as the last step)
 	@SEAMLES10-365
-	Scenario: AC1-TC2- Verify that user can ogin with valid credentials by pressing enter key
+	Scenario: AC1-TC2- Verify that user can login with valid credentials by pressing enter key
 		When user writes valid username
 		    And user writes valid password
 		    And user presses enter key

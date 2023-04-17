@@ -4,7 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.seamlessly.pages.BasePage;
 import net.seamlessly.pages.LoginPage;
+import net.seamlessly.runners.SeamlesslyRunner;
 import net.seamlessly.utility.BrowserUtility;
 import net.seamlessly.utility.ConfigurationReader;
 import net.seamlessly.utility.Driver;
@@ -32,11 +34,14 @@ public class LoginStepDefs {
     @When("user writes valid username")
     public void userWritesValidUsername() {
         loginPage.userName.sendKeys("Employee170");
+        BrowserUtility.sleep(2);
+
     }
 
     @And("user writes valid password")
     public void userWritesValidPassword() {
         loginPage.inputPassword.sendKeys("Employee123");
+        BrowserUtility.sleep(2);
     }
 
     @When("user presses enter key")
@@ -116,5 +121,4 @@ public class LoginStepDefs {
     public void userLoginWithValidCredentials() {
         loginPage.login(ConfigurationReader.getProperty("username"),ConfigurationReader.getProperty("password"));
     }
-
 }

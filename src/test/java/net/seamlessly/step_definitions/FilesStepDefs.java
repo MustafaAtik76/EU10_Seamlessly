@@ -44,6 +44,14 @@ public class FilesStepDefs {
 
 		Assert.assertTrue(starred.isDisplayed());
 
+		BrowserUtility.sleep(2);
+
+		WebElement element = Driver.getDriver().findElement(By.xpath("(//tr[@data-file='"+fileName+"'])[2]//span[@class='icon icon-more']"));
+		element.click();
+
+		filesPage.deleteButton.click();
+
+
 	}
 
 
@@ -65,6 +73,14 @@ public class FilesStepDefs {
 	@Then("user see new name as {string}")
 	public void userSeeNewNameAs(String newName) {
 		Assert.assertTrue(filesPage.isVisible(newName).isDisplayed());
+
+		BrowserUtility.sleep(2);
+
+		WebElement element = Driver.getDriver().findElement(By.xpath("//tr[@data-file='"+newName+"']//a[@class='action action-menu permanent']"));
+		BrowserUtility.clickWithJS(element);
+
+		filesPage.deleteButton.click();
+
 	}
 
 	@And("user clicks on Details button")
@@ -82,10 +98,18 @@ public class FilesStepDefs {
 		filesPage.commentBox.sendKeys(comment+Keys.ENTER);
 	}
 
-	@Then("user observe comment {string} is displayed")
-	public void userObserveCommentIsDisplayed(String comment) {
+	@Then("user observe comment {string} is displayed and delete {string}")
+	public void userObserveCommentIsDisplayedAndDelete(String comment, String fileName) {
 		String actualComment = Driver.getDriver().findElement(By.xpath("//div[.='" + comment + "']")).getText();
 		Assert.assertEquals(comment,actualComment);
+
+		BrowserUtility.sleep(2);
+
+		WebElement element = Driver.getDriver().findElement(By.xpath("//tr[@data-file='"+fileName+"']//a[@class='action action-menu permanent']"));
+		BrowserUtility.clickWithJS(element);
+
+		filesPage.deleteButton.click();
+
 	}
 
 	@And("user clicks on {string} comment three dots menu")
@@ -98,10 +122,18 @@ public class FilesStepDefs {
 		filesPage.deleteCommentButton.click();
 	}
 
-	@Then("user observe comment {string} is disappeared")
-	public void userObserveCommentIsDisappeared(String comment) {
+
+
+	@Then("user observe comment {string} is disappeared and delete {string}")
+	public void userObserveCommentIsDisappearedAndDelete(String comment, String fileName) {
 		WebElement commentHere = Driver.getDriver().findElement(By.xpath("//div[.='" + comment + "']"));
 		Assert.assertFalse(commentHere.isDisplayed());
-	}
 
+		BrowserUtility.sleep(2);
+
+		WebElement element = Driver.getDriver().findElement(By.xpath("//tr[@data-file='"+fileName+"']//a[@class='action action-menu permanent']"));
+		BrowserUtility.clickWithJS(element);
+
+		filesPage.deleteButton.click();
+	}
 }

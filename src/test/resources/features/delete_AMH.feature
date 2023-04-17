@@ -6,7 +6,7 @@ Feature: Deleted Files Tab Functionality
     And user navigates to All_files page
     And user creates and deletes "New Text Delete 1" and "New Text Delete 2" files
 
-  @SEAMLES10-616
+  @SEAMLES10-616 #smoke
   Scenario: User can see the most recent deleted file in the first line of
   the deleted file list when deleted files are ordered by newest to oldest
 

@@ -10,10 +10,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class UploadStepDefs {
@@ -156,8 +152,8 @@ public class UploadStepDefs {
     }
 
     @When("user upload {string} with {string}")
-    public void user_a_create_folder(String newFolder, String extension) {
-        uploadPage.uploadFileWithExtension(newFolder, extension);
+    public void user_upload_file_with_ext(String newFile, String extension) {
+        uploadPage.uploadFileWithExtension(newFile, extension);
     }
 
     @When("user create a {string} folder")

@@ -68,7 +68,7 @@ public class CalendarStepDefs {
 
     String time     = "7:00 PM";
     String endTime  = "9:00 PM";
-    String date     = "2023-04-04";
+    String date     = "2023-04-30";
     String anyEvent ="Alumni Meeting" ;
     String title  ;
 
@@ -122,7 +122,7 @@ public class CalendarStepDefs {
     public void user_click_any_event_on_the_monthly_calendar(String title) {
         selectedEvent = calendarPage.getEventLink(date,anyEvent);
         selectedEvent.click();
-        BrowserUtility.sleep(2);
+        //BrowserUtility.sleep(2);
     }
 
     @When("User click More button")

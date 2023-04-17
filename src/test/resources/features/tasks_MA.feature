@@ -16,18 +16,21 @@ Feature: tasks module feature
   Background: login
     Given user login with valid credentials
     And user navigates to "tasks" module
-@SEAMLES10-676
+
+  @SEAMLES10-676
   Scenario: User can create a new list of tasks with "ENTER" key
     When user clicks Add List…
     And user writes the list name "Test List" and presses ENTER key
     Then verify that user sees this name "Test List" inside the list name list
-@SEAMLES10-677
+
+  @SEAMLES10-677
   Scenario: User can create a new list of tasks by clicking save button
     When user clicks Add List…
     And user writes the list name "Test List"
     And user clicks Save button
     Then verify that user sees this name "Test List" inside the list name list
-@SEAMLES10-678
+
+  @SEAMLES10-678
   Scenario: User cannot create a new list of tasks with the same name
     When user clicks Add List…
     And user writes the list name "Test for Task" and presses ENTER key
@@ -35,21 +38,23 @@ Feature: tasks module feature
     And user writes the list name "Test for Task" and presses ENTER key
     Then verify that user cannot create second same name list and sees the error message
       | The name "Test for Task" is already used. |
-@SEAMLES10-679
+
+  @SEAMLES10-679 #smoke
   Scenario: User can create a new task
     When user clicks Add List…
     And user writes the list name "Test for Task" and presses ENTER key
     And user writes the task name "new task" and presses ENTER key
     Then verify that user sees "new task" in the task list
 
-@SEAMLES10-680  @ignore
+  @SEAMLES10-680  @ignore
   Scenario: User cannot create a new task with the same name
     When user clicks Add List…
     And user writes the list name "Test for Task" and presses ENTER key
     And user writes the task name "new task" and presses ENTER key
     And user writes the task name "new task" and presses ENTER key
     Then verify that user cannot create second same name task
-@SEAMLES10-681
+
+  @SEAMLES10-681
   Scenario Outline: User can add any task to the list of completed tasks by clicking on the checkbox near the task name
     When user clicks Add List…
     And user writes the list name "<ListName>" and presses ENTER key
@@ -63,7 +68,8 @@ Feature: tasks module feature
       | ListName      | TaskName | Sentence       | Menu      | LineType                    |
       | Test for Task | new task | Completed Task | Completed | task-item task-item--closed |
       | 11111111      | 22222222 | Completed Task | Completed | task-item task-item--closed |
-@SEAMLES10-682
+
+  @SEAMLES10-682
   Scenario: User can add any task to the list of important tasks by clicking on the star icon on the right side of task line
     When user clicks Add List…
     And user writes the list name "Test for Task" and presses ENTER key
@@ -74,7 +80,7 @@ Feature: tasks module feature
     When user clicks "Important" menu on the left
     Then verify that user sees important task "new task AC-5"
 
-@SEAMLES10-683
+  @SEAMLES10-683
   Scenario: User can see the number of all uncompleted tasks next to the Current tab
     When user clicks Add List…
     And user writes the list name "Test for Task" and presses ENTER key

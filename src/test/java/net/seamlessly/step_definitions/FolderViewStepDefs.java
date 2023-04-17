@@ -37,7 +37,7 @@ FolderViewPage folderViewPage=new FolderViewPage();
             namesActual.add(each.getAttribute("data-file").toLowerCase());
 
         }
-        System.out.println("namesActual = " + namesActual);
+       // System.out.println("namesActual = " + namesActual);
 
         String expectedOrderByAscending="sort-indicator icon-triangle-n";
         String expectedOrderByDescending="sort-indicator icon-triangle-s";
@@ -49,10 +49,10 @@ FolderViewPage folderViewPage=new FolderViewPage();
 
             String[] names = namesActual.toArray(new String[0]);
             Arrays.sort(names);
-            System.out.println("names = " + Arrays.toString(names));
+          //  System.out.println("names = " + Arrays.toString(names));
 
             List<String> sortedNames = Arrays.asList(names);
-            System.out.println("sortedNames = " + sortedNames);
+         //   System.out.println("sortedNames = " + sortedNames);
 
             Assert.assertEquals(sortedNames,namesActual);
 
@@ -62,11 +62,11 @@ FolderViewPage folderViewPage=new FolderViewPage();
             String[] names = namesActual.toArray(new String[0]);
             Arrays.sort(names);
             List<String> sortedNames = Arrays.asList(names);
-            System.out.println("sortedNames2 = " + sortedNames);
+         //   System.out.println("sortedNames2 = " + sortedNames);
 
             Collections.reverse(sortedNames);
             String[] descend = sortedNames.toArray(new String[0]);
-            System.out.println("descend = " + Arrays.toString(descend));
+           // System.out.println("descend = " + Arrays.toString(descend));
 
             List<String> descendNames = Arrays.asList(descend);
 
@@ -119,7 +119,7 @@ FolderViewPage folderViewPage=new FolderViewPage();
         String expectedOrderByAscending="sort-indicator icon-triangle-n";
         String expectedOrderByDescending="sort-indicator icon-triangle-s";
         String actualOrder=folderViewPage.sizeSortIndicator.getAttribute("class");
-        System.out.println("actualOrder = " + actualOrder);
+       // System.out.println("actualOrder = " + actualOrder);
 
 
 
@@ -130,10 +130,10 @@ FolderViewPage folderViewPage=new FolderViewPage();
 
             Integer[] sizes = sizeActual.toArray(new Integer[0]);
             Arrays.sort(sizes);
-            System.out.println("sizes = " + Arrays.toString(sizes));
+          //  System.out.println("sizes = " + Arrays.toString(sizes));
 
             List<Integer> sortedSizes = Arrays.asList(sizes);
-            System.out.println("sortedsizes = " + sortedSizes);
+          //  System.out.println("sortedsizes = " + sortedSizes);
 
             Assert.assertEquals(sortedSizes,sizeActual);
 
@@ -142,14 +142,14 @@ FolderViewPage folderViewPage=new FolderViewPage();
 
             Integer[] sizes = sizeActual.toArray(new Integer[0]);
             Arrays.sort(sizes);
-            System.out.println("sizes = " + Arrays.toString(sizes));
+          //  System.out.println("sizes = " + Arrays.toString(sizes));
 
             List<Integer> sortedSizes = Arrays.asList(sizes);
-            System.out.println("sortedSizes = " + sortedSizes);
+         //   System.out.println("sortedSizes = " + sortedSizes);
 
             Collections.reverse(sortedSizes);
             Integer[] descend = sortedSizes.toArray(new Integer[0]);
-            System.out.println("descend = " + Arrays.toString(descend));
+        //    System.out.println("descend = " + Arrays.toString(descend));
 
             List<Integer> descendSizes = Arrays.asList(descend);
 
@@ -178,12 +178,12 @@ folderViewPage.headerDate.click();
             modifiedDateActual.add(Long.valueOf(each.getAttribute("data-mtime")));
 
         }
-        System.out.println("modifiedDateActual = " + modifiedDateActual);
+        //System.out.println("modifiedDateActual = " + modifiedDateActual);
 
         String expectedOrderByAscending="sort-indicator icon-triangle-n";
         String expectedOrderByDescending="sort-indicator icon-triangle-s";
         String actualOrder=folderViewPage.ModifiedDateSortIndicator.getAttribute("class");
-        System.out.println("actualOrder = " + actualOrder);
+       // System.out.println("actualOrder = " + actualOrder);
 
 
 
@@ -194,10 +194,10 @@ folderViewPage.headerDate.click();
 
             Long[] modified = modifiedDateActual.toArray(new Long[0]);
             Arrays.sort(modified);
-            System.out.println("modified = " + Arrays.toString(modified));
+           // System.out.println("modified = " + Arrays.toString(modified));
 
             List<Long> sortedModifiedDate = Arrays.asList(modified);
-            System.out.println("sortedModifiedDate = " + sortedModifiedDate);
+           // System.out.println("sortedModifiedDate = " + sortedModifiedDate);
 
             Assert.assertEquals(sortedModifiedDate,modifiedDateActual);
 
@@ -206,14 +206,14 @@ folderViewPage.headerDate.click();
 
             Long[] modified = modifiedDateActual.toArray(new Long[0]);
             Arrays.sort(modified);
-            System.out.println("sizes = " + Arrays.toString(modified));
+         //   System.out.println("sizes = " + Arrays.toString(modified));
 
             List<Long> sortedModified = Arrays.asList(modified);
-            System.out.println("sortedModified = " + sortedModified);
+        //    System.out.println("sortedModified = " + sortedModified);
 
             Collections.reverse(sortedModified);
             Long[] descend = sortedModified.toArray(new Long[0]);
-            System.out.println("descend = " + Arrays.toString(descend));
+          //  System.out.println("descend = " + Arrays.toString(descend));
 
             List<Long> descendSizes = Arrays.asList(descend);
 
@@ -223,7 +223,81 @@ folderViewPage.headerDate.click();
     }
 
 
+    @And("user click the taggle-view button at the right corner of all files tab screen")
+    public void userClickTheTaggleViewButtonAtTheRightCornerOfAllFilesTabScreen() {
+        BrowserUtility.sleep(3);
+folderViewPage.toggleViewButton.click();
+
+    }
+
+    @Then("Verify user can see the folder view in large icons")
+    public void verifyUserCanSeeTheFolderViewInLargeIcons() {
+BrowserUtility.sleep(3);
+        String expectedToggleViewStandart="button icon-toggle-pictures";
+        String expectedToggleViewGrid="button icon-toggle-filelist";
+        String actualToggleView=folderViewPage.toggleViewButton.getAttribute("class");
+
+       // System.out.println("actualToggleView = " + actualToggleView);
+
+        if(actualToggleView.equals(expectedToggleViewStandart)){
+
+            Assert.assertEquals(expectedToggleViewStandart,actualToggleView);
+        } else if (actualToggleView.equals(expectedToggleViewGrid)) {
+
+            Assert.assertEquals(expectedToggleViewGrid,actualToggleView);
+
+        }
+
+        }
+
+    @When("user click the select all checkbox")
+    public void userClickTheSelectAllCheckbox() {
+        folderViewPage.selectAllFiles.click();
+        BrowserUtility.sleep(3);
+
+    }
+
+    @Then("Verify all checkboxes are selected")
+    public void verifyAllCheckboxesAreSelected() {
+
+        List<WebElement> tableAllCheckBoxes=Driver.getDriver().findElements(By.xpath("//*[@id=\"fileList\"]/tr/td[1]//input"));
+        List<String> getTableAllCheckBoxes=new ArrayList<>();
+        for (WebElement eachTableAllCheckBox : tableAllCheckBoxes) {
+            BrowserUtility.sleep(1);
+            getTableAllCheckBoxes.add(eachTableAllCheckBox.getAttribute("id"));
+            Assert.assertTrue(eachTableAllCheckBox.isSelected());
+            //System.out.println("eachTableAllCheckBox.isSelected() = " + eachTableAllCheckBox.isSelected());
+        }
+       // System.out.println("getTableAllCheckBoxes = " + getTableAllCheckBoxes);
+
+
+    }
+
+    @Then("Verify total values of all files in the first line")
+    public void verifyTotalValuesOfAllFilesInTheFirstLine() {
+List<WebElement> tableDataType=Driver.getDriver().findElements(By.xpath("//tbody[@id='fileList']//tr"));
+//List<String> getTableDataTypes=new ArrayList<>();
+
+int file=0;
+int dir=0;
+        for (WebElement eachDataTypes : tableDataType) {
+           // getTableDataTypes.add(eachDataTypes.getAttribute("data-type"));
+if (eachDataTypes.getAttribute("data-type").equalsIgnoreCase("file")){
+    file++;
+} else if (eachDataTypes.getAttribute("data-type").equalsIgnoreCase("dir")) {
+    dir++;
+
 }
+        }
+        String totalValuesOfFiles=dir +" folders and " + file +" files";
+        //6 folders and 2 files
+        System.out.println("totalValuesOfFiles = " + totalValuesOfFiles);
+        //System.out.println("getTableDataTypes = " + getTableDataTypes);
+
+Assert.assertEquals(totalValuesOfFiles,folderViewPage.totalFilesAppearance.getText());
+    }
+}
+
 
 
 

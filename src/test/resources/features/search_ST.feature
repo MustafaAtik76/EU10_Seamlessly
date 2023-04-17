@@ -34,3 +34,16 @@ Feature: Search functionality
       And user clicks the contacts name on the dropdown menu
       Then user can see the related contact
 
+  @SEAMLES10-698
+  Scenario: User can see the images files under the Photos module when uploaded them
+    When user clicks the + button
+    And user clicks the uploadFile link to upload "Nihat" with ".jpg"
+    And user clicks the photos icon
+    Then  user can see the "Nihat" file
+
+  @SEAMLES10-699
+    Scenario: User can navigate to the Dashboard page whenever clicking the Seamlessly icon at the top left corner of the page
+      When User clicks seamlesslyIcon
+      Then user navigates to dashboard page
+
+

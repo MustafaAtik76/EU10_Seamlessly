@@ -53,7 +53,7 @@ Feature: seamlessly upload function
     And user clicks the delete item link
     Then "muezzinoglu" item deleted
 
-  @wipp @SEAMLES10-650 #ac5
+  @wipp @SEAMLES10-650 #ac5 #smoke
   Scenario: User can see the total number of files and folders under the files list table
     When user upload "selenium notlarim" with ".txt"
     And  user create a "muezzinoglu" folder

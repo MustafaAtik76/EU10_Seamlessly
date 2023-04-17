@@ -34,10 +34,5 @@ public class Hooks {
         Driver.closeDriver();
     }
 
-    @After()
-    public void closeBrowser(Scenario scenario) {
-        if (!scenario.isFailed()) {
-            Driver.closeDriver();
-        }
-    }
+
 }

@@ -52,10 +52,56 @@ public class ContactsStepDefs {
         wait.until(ExpectedConditions.visibilityOf(contactsPage.form));
         Assert.assertTrue(contactsPage.listOfContacts.isDisplayed());
 
+    }
+    @When("user clicks on picture icon button")
+    public void user_clicks_on_picture_icon_button() {
+      contactsPage.pictureIconBtn.click();
+        BrowserUtility.sleep(10);
+    }
+    @When("user should see Choose from files option")
+    public void user_should_see_choose_from_files_option() {
+        contactsPage.filesBtn.click();
+        BrowserUtility.sleep(10);
+
+    }
+    @When("user select a picture")
+    public void user_select_a_picture() {
+        contactsPage.selectPicture.click();
+        BrowserUtility.sleep(10);
+
+    }
+    @When("user clicks on Choose button")
+    public void user_clicks_on_choose_button() {
+        contactsPage.chooseBtn.click();
+        BrowserUtility.sleep(10);
+
+    }
+    @Then("a new profile picture should be changed")
+    public void a_new_profile_picture_should_be_changed() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(contactsPage.newProfilePicture));
+        Assert.assertTrue(contactsPage.newProfilePicture.isDisplayed());
+
+    }
+    @When("user selects a contact")
+    public void user_selects_a_contact() {
+       contactsPage.contact.click();
+       BrowserUtility.sleep(10);
+
+    }
+    @When("user clicks on the three dots button")
+    public void user_clicks_on_the_three_dots_button() {
+      contactsPage.threeDotsBttn.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(contactsPage.threeDotsBttn));
+    }
+    @Then("user clicks on the delete button")
+    public void user_clicks_on_the_delete_button() {
+        contactsPage.deleteBtn.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(contactsPage.deleteBtn));
+      
+    }
 
     }
 
-
-
-
-}
