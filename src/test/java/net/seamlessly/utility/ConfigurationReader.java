@@ -8,6 +8,7 @@ public class ConfigurationReader {
 
     private static Properties properties = new Properties();
 
+
     static {
         try {
             FileInputStream fis = new FileInputStream("configuration.properties");
