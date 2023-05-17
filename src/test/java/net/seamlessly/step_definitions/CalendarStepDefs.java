@@ -68,7 +68,7 @@ public class CalendarStepDefs {
 
     String time     = "7:00 PM";
     String endTime  = "9:00 PM";
-    String date     = "2023-04-30";
+    String date     = "2023-05-30";
     String anyEvent ="Alumni Meeting" ;
     String title  ;
 

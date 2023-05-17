@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "net/seamlessly/step_definitions",
-        tags = "@SEAMLES10-697",
-        stepNotifications = true,
+        tags = "",
+        stepNotifications = false,
         dryRun = false,
         publish = false
 )
